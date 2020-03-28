@@ -2,9 +2,11 @@ import { Router } from 'express';
 import OngsController from './app/controllers/OngsController';
 import IncidentsController from './app/controllers/IncidentsController';
 import ProfileController from './app/controllers/ProfileController';
+import SessionController from './app/controllers/SessionController';
 
 const routes = new Router();
 
+routes.post('/session', SessionController.store);
 routes.post('/ongs', OngsController.store);
 routes.get('/ongs', OngsController.index);
 
