@@ -1,18 +1,4 @@
-// import databaseConfig from '../config/database';
+import knex from 'knex';
+import dbConfig from '../../knexfile';
 
-// Array com o nome dos models
-// const models = [];
-
-/**
- * Loader de Models
- * Todos os models da aplicação
- */
-class Database {
-  constructor() {
-    this.init();
-  }
-
-  init() {}
-}
-
-export default new Database();
+export const connection = knex(dbConfig.development);
