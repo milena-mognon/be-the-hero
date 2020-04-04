@@ -1,4 +1,5 @@
 import { connection } from '../../database';
+import * as Yup from 'yup';
 
 class IncidentsController {
   async index(req, res) {
@@ -27,6 +28,16 @@ class IncidentsController {
     const ong_id = req.headers.authorization;
     const { title, description, value } = req.body;
 
+    const schema = Yup.object().shape({
+      title: Yup.string().required(),
+      description: Yup.string().required(),
+      value: Yup.string().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation Fails' });
+    }
+
     const [id] = await connection('incidents').insert({
       title,
       description,
@@ -41,6 +52,22 @@ class IncidentsController {
     const { id } = req.params;
 
     const ong_id = req.headers.authorization;
+
+    const schema = Yup.object().shape({
+      id: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.params))) {
+      return res
+        .status(400)
+        .json({ error: 'The incident ID must be a number' });
+    }
+
+    if (!ong_id) {
+      return res
+        .status(401)
+        .json({ error: 'Access not allowed! Required Login' });
+    }
 
     const incident = await connection('incidents')
       .where('id', id)
