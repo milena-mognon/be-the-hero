@@ -1,4 +1,7 @@
 import knex from 'knex';
 import dbConfig from '../../knexfile';
 
-export const connection = knex(dbConfig.development);
+const config =
+  process.env.NODE_ENV === 'test' ? dbConfig.test : dbConfig.development;
+
+export const connection = knex(config);

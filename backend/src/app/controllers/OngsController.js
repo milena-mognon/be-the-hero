@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import { connection } from '../../database';
 import * as Yup from 'yup';
+import generateUniqueId from '../../utils/generateUniqueId';
 
 class OngsController {
   async index(req, res) {
@@ -30,7 +31,7 @@ class OngsController {
       return res.status(400).json({ error: 'Validation Fails' });
     }
 
-    const id = crypto.randomBytes(4).toString('HEX');
+    const id = generateUniqueId();
 
     await connection('ongs').insert({
       id,
@@ -41,7 +42,7 @@ class OngsController {
       uf,
     });
 
-    res.json(id);
+    res.json({ id });
   }
 }
 
