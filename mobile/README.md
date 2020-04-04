@@ -1,6 +1,6 @@
 <h1 align="center">
-    <img alt="Logo Be the Hero" src=".github/logo.png" width="200px" />
-    <img alt="Heroes" src=".github/heroes.png" width="200px" />
+    <img alt="Logo Be the Hero" src="../.github/logo.png" width="200px" />
+    <img alt="Heroes" src="../.github/heroes.png" width="200px" />
 </h1>
 <h4 align="center">
    Projeto desenvolvido na Semana OmniStack 11
