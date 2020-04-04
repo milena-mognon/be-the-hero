@@ -1,6 +1,6 @@
 <h1 align="center">
-    <img alt="Logo Be the Hero" src=".github/logo.png" width="200px" />
-    <img alt="Heroes" src=".github/heroes.png" width="200px" />
+    <img alt="Logo Be the Hero" src="../.github/logo.png" width="200px" />
+    <img alt="Heroes" src="../.github/heroes.png" width="200px" />
 </h1>
 <h4 align="center">
    Projeto desenvolvido na Semana OmniStack 11
@@ -16,5 +16,5 @@ A versão web, feita com React, é a área administrativa da ONG. Já a versão 
 
 1. Entre na pasta 'backend' pelo terminal;
 2. Rode `yarn` para instalar as dependências;
-3. Rode `yarn dev` para iniciar o servidor de desenvolvimento;
-4. Abra `http://localhost:3333` para ver o projeto no navegador.
+3. Rode `yarn knex migrate:latest` para criar o banco de dados e rodar todas as migrations;
+4. Rode `yarn dev` para iniciar o servidor de desenvolvimento;
